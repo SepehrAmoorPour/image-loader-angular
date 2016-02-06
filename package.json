@@ -1,0 +1,20 @@
+{
+  "name": "image-loader-angular",
+  "version": "1.0.0",
+  "description": "An AngularJS Factory module that preloads images in your application seperated from template-rendering",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SepehrAmoorPour/image-loader-angular.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "angularjs",
+    "angular",
+    "image",
+    "loader"
+  ],
+  "author": "Sepehr Amoor Pour <se�pehr.amoor.pour@gmail.com>",
+  "license": "MIT"
+}
