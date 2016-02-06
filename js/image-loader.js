@@ -11,7 +11,7 @@ angular.module('sap.imageloader', [])
 			srcProperty = typeof srcProperty !== "undefined" ? srcProperty : "src";
 			var promises = [];
 			for (var i = images.length - 1; i >= 0; i--) {
-				var image = this.loadImage(images[i]);
+				var image = this.loadImage(images[i], srcProperty);
 				promises.push(image);
 			};
 
