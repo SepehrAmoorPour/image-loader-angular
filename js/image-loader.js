@@ -19,14 +19,16 @@ angular.module('sap.imageloader', [])
 		},
 
 		loadImage: function(image, srcProperty) {
+			srcProperty = typeof srcProperty !== "undefined" ? srcProperty : "src";
 			var deferred = $q.defer()
 			var imageObject = new Image();
+
 			imageObject.onload = function() {
 				if (typeof image === "object") {
 					image[srcProperty] = imageObject.src;
 				}
 				else if (typeof image === "string") {
-					image = imagesObject.src;
+					image = imageObject.src;
 				}
 				deferred.resolve(image);
 				return deferred.promise;
@@ -36,7 +38,7 @@ angular.module('sap.imageloader', [])
 				imageObject.src = image[srcProperty]
 			}
 			else if (typeof image === "string") {
-				imagesObject.src = image;
+				imageObject.src = image;
 			}
 		}
 	};
