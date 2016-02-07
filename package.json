@@ -1,6 +1,6 @@
 {
   "name": "image-loader-angular",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An AngularJS Factory module that preloads images in your application seperated from template-rendering",
   "repository": {
     "type": "git",
