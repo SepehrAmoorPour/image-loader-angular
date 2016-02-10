@@ -4,14 +4,14 @@ An AngularJS service for loading images to be put in image tags in the markup of
 
 ## Installation
 Use npm to install the service:
-> npm install npm i image-loader-angular
+> npm install image-loader-angular
 
 ## Usage
 
 Use the service in your AngularJS controller to load your images before inserting them into your view.
 
 ### Image source is a string
-Controller
+####Controller
 ```javascript
 // Include the image-loader in your module dependencies
 var exampleApp = angular.module('exampleApp',['sap.imageloader']);
@@ -23,7 +23,8 @@ myApp.controller('ExampleController', ['$scope', function($scope, ImageLoader) {
   });
 }]);
 ```
-View
+
+####View
 ```html
 <div>
   <img ng-src="{{ imageSrc }}" />
@@ -31,7 +32,7 @@ View
 ```
 
 ### Image source is an object property
-Controller
+####Controller
 ```javascript
 // Include the image-loader in your module dependencies
 var exampleApp = angular.module('exampleApp',['sap.imageloader']);
@@ -47,7 +48,8 @@ myApp.controller('ExampleController', ['$scope', function($scope, ImageLoader) {
   });
 }]);
 ```
-View
+
+####View
 ```html
 <div>
   <img ng-src="{{ imageObject.myImageSrc }}" />
@@ -55,7 +57,7 @@ View
 ```
 
 ### List of image objects or strings
-Controller
+####Controller
 ```javascript
 // Include the image-loader in your module dependencies
 var exampleApp = angular.module('exampleApp',['sap.imageloader']);
@@ -85,7 +87,7 @@ myApp.controller('ExampleController', ['$scope', function($scope, ImageLoader) {
 }]);
 ```
 
-View
+#### View
 ```html
 <!--Strings-->
 <div>

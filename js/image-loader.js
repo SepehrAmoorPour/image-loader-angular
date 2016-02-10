@@ -1,5 +1,5 @@
 /*!
- * Image Loader Angular v1.0.4
+ * Image Loader Angular v1.0.5
  * (c) 2016 Sepehr Amoor Pour
  * Released under the MIT License.
  */
