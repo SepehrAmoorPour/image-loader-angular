@@ -1,19 +1,19 @@
 /*!
- * Image Loader Angular v1.0.0
+ * Image Loader Angular v1.0.4
  * (c) 2016 Sepehr Amoor Pour
  * Released under the MIT License.
  */
 angular.module('sap.imageloader', [])
 
 .factory('ImageLoader', ['$q', function($q){
-	var imageLoader = {
+	return {
 		loadImages: function (images, srcProperty) {
 			srcProperty = typeof srcProperty !== "undefined" ? srcProperty : "src";
 			var promises = [];
-			for (var i = images.length - 1; i >= 0; i--) {
+			for (var i = 0; i < images.length; i++) {
 				var image = this.loadImage(images[i], srcProperty);
 				promises.push(image);
-			};
+			}
 
 			return $q.all(promises);
 		},
@@ -42,6 +42,4 @@ angular.module('sap.imageloader', [])
 			}
 		}
 	};
-
-	return imageLoader;
 }]);
