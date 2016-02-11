@@ -16,7 +16,7 @@ Use the service in your AngularJS controller to load your images before insertin
 // Include the image-loader in your module dependencies
 var exampleApp = angular.module('exampleApp',['sap.imageloader']);
 
-myApp.controller('ExampleController', ['$scope', function($scope, ImageLoader) {
+exampleApp.controller('ExampleController', ['$scope', function($scope, ImageLoader) {
   var myImageSrc = 'http://someimagesource.com/example.jpg';
   ImageLoader.loadImage(myImageSrc).then(function(loadedSrc) {
     $scope.imageSrc = loadedSrc;
@@ -37,7 +37,7 @@ myApp.controller('ExampleController', ['$scope', function($scope, ImageLoader) {
 // Include the image-loader in your module dependencies
 var exampleApp = angular.module('exampleApp',['sap.imageloader']);
 
-myApp.controller('ExampleController', ['$scope', function($scope, ImageLoader) {
+exampleApp.controller('ExampleController', ['$scope', function($scope, ImageLoader) {
   var myObject = {
     myImageSrc: 'http://someimagesource.com/example.jpg'
   };
@@ -62,12 +62,12 @@ myApp.controller('ExampleController', ['$scope', function($scope, ImageLoader) {
 // Include the image-loader in your module dependencies
 var exampleApp = angular.module('exampleApp',['sap.imageloader']);
 
-myApp.controller('ExampleController', ['$scope', function($scope, ImageLoader) {
+exampleApp.controller('ExampleController', ['$scope', function($scope, ImageLoader) {
   var myStringsList = [
     'http://someimagesource.com/example.jpg',
     'http://someimagesource.com/example2.jpg'
   ]
-  
+
   var myObjectsList = [
     {myImageSrc: 'http://someimagesource.com/example.jpg'},
     {myImageSrc: 'http://someimagesource.com/example2.jpg'}
@@ -83,7 +83,7 @@ myApp.controller('ExampleController', ['$scope', function($scope, ImageLoader) {
   ImageLoader.loadImages(myObjectsList, 'myImageSrc').then(function(loadedObjects) {
     $scope.imageObjectsList = loadedObjects;
   });
-  
+
 }]);
 ```
 
