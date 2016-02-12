@@ -96,6 +96,6 @@ exampleApp.controller('ExampleController', ['$scope', function($scope, ImageLoad
 
 <!--Objects-->
 <div>
-  <img ng-repeat="imageObject in imageObjectsList" ng-src="{{ image.myImageSrc }}" />
+  <img ng-repeat="imageObject in imageObjectsList" ng-src="{{ imageObject.myImageSrc }}" />
 </div>
 ```
