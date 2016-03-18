@@ -9,11 +9,20 @@ angular.module('sap.imageloader', [])
 	return {
 		loadImages: function (images, srcProperty) {
 			srcProperty = typeof srcProperty !== "undefined" ? srcProperty : "src";
-			var promises = [];
-			for (var i = 0; i < images.length; i++) {
-				var image = this.loadImage(images[i], srcProperty);
-				promises.push(image);
-			}
+			try {
+				var promises = [];
+				if (Array.isArray(images)) {
+					for (var i = 0; i < images.length; i++) {
+						var image = this.loadImage(images[i], srcProperty);
+						promises.push(image);
+					}
+				}
+				else {
+					throw new TypeError("No image list provided");
+				}
+			} catch(e) {
+				console.error(e);
+			};
 
 			return $q.all(promises);
 		},
@@ -34,12 +43,19 @@ angular.module('sap.imageloader', [])
 				return deferred.promise;
 			};
 
-			if (typeof image === "object") {
-				imageObject.src = image[srcProperty]
-			}
-			else if (typeof image === "string") {
-				imageObject.src = image;
-			}
+			try {
+				if (typeof image === "object") {
+					imageObject.src = image[srcProperty]
+				}
+				else if (typeof image === "string") {
+					imageObject.src = image;
+				}
+				else(
+					throw new TypeError("No image provided");
+				)
+			} catch(e) {
+				console.error(e);
+			};
 		}
 	};
 }]);
