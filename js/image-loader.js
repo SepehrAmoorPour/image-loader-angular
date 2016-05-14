@@ -20,16 +20,16 @@ angular.module('sap.imageloader', [])
 				else {
 					throw new TypeError("No image list provided");
 				}
+				return $q.all(promises);
 			} catch(e) {
 				console.error(e);
 			};
 
-			return $q.all(promises);
 		},
 
 		loadImage: function(image, srcProperty) {
 			srcProperty = typeof srcProperty !== "undefined" ? srcProperty : "src";
-			var deferred = $q.defer()
+			var deferred = $q.defer();
 			var imageObject = new Image();
 
 			imageObject.onload = function() {
@@ -40,7 +40,6 @@ angular.module('sap.imageloader', [])
 					image = imageObject.src;
 				}
 				deferred.resolve(image);
-				return deferred.promise;
 			};
 
 			try {
@@ -50,12 +49,14 @@ angular.module('sap.imageloader', [])
 				else if (typeof image === "string") {
 					imageObject.src = image;
 				}
-				else(
+				else {
 					throw new TypeError("No image provided");
-				)
+				}
 			} catch(e) {
+				deferred.reject(e);
 				console.error(e);
 			};
+			return deferred.promise;
 		}
 	};
 }]);
