@@ -1,5 +1,5 @@
 /*!
- * Image Loader Angular v1.0.7
+ * Image Loader Angular v1.0.8
  * (c) 2016 Sepehr Amoor Pour
  * Released under the MIT License.
  */
@@ -24,7 +24,6 @@ angular.module('sap.imageloader', [])
 			} catch(e) {
 				console.error(e);
 			};
-
 		},
 
 		loadImage: function(image, srcProperty) {
