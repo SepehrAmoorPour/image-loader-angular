@@ -43,7 +43,7 @@ angular.module('sap.imageloader', [])
 
 			try {
 				if (typeof image === "object") {
-					imageObject.src = image[srcProperty]
+					imageObject.src = image[srcProperty];
 				}
 				else if (typeof image === "string") {
 					imageObject.src = image;
@@ -58,4 +58,30 @@ angular.module('sap.imageloader', [])
 			return deferred.promise;
 		}
 	};
+}])
+
+.directive('loadedImage', ['ImageLoader', function(ImageLoader) {
+	return {
+		scope: {
+			src: '&src'
+		},
+		link: function(scope, element, attributes) {
+			var imageObject = new Image();
+			for (attributeName in attributes) {
+				if (attributeName !== 'src') {
+					if (attributeName === 'class') {
+						imageObject.className = attributes.class;
+					}
+					else {
+						imageObject[attributeName] = attributes[attributeName]
+					}
+				}
+			}
+			imageObject.onload = function() {
+				element.append(imageObject);
+			};
+
+			imageObject.src = scope.src();
+		}
+	}
 }]);
