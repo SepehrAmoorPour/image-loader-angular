@@ -1,13 +1,26 @@
 # image-loader-angular
 
-An AngularJS service for loading images to be put in image tags in the markup of application. Using this service to load images will keep remove the responsibility of loading images from the view and thus not block its rendering process. Compatible with AngularJS 1.2.14 and higher.
+An AngularJS module containing for loading images to be put in image tags in the markup of application. Using this module to load images will keep remove the responsibility of loading images from the view and thus not block its rendering process. Compatible with AngularJS 1.2.14 up to 1.5.
 
 ## Installation
-Use npm to install the service:
+Use npm to install the module:
 > npm install image-loader-angular
 
-## Usage
+## Directive
+Use the directive <loaded-image> as a substitute for the <img> tag. The directive will load the image and insert it into the view markup as an <img> tag. All attributes included in the <loaded-image> directive will be added to the <img> tag. First include the ImageLoader module to the app.
 
+```javascript
+// Include the image-loader in your module dependencies
+var exampleApp = angular.module('exampleApp',['sap.imageloader']);
+```
+
+```html
+<div>
+  <loaded-image src="{{ imageSrc }}"></loaded-image>
+</div>
+```
+
+## Service
 Use the service in your AngularJS controller to load your images before inserting them into your view.
 
 ### Image source is a string
@@ -16,7 +29,7 @@ Use the service in your AngularJS controller to load your images before insertin
 // Include the image-loader in your module dependencies
 var exampleApp = angular.module('exampleApp',['sap.imageloader']);
 
-exampleApp.controller('ExampleController', ['$scope', function($scope, ImageLoader) {
+exampleApp.controller('ExampleController', ['$scope', 'ImageLoader', function($scope, ImageLoader) {
   var myImageSrc = 'http://someimagesource.com/example.jpg';
   ImageLoader.loadImage(myImageSrc).then(function(loadedSrc) {
     $scope.imageSrc = loadedSrc;
@@ -34,10 +47,7 @@ exampleApp.controller('ExampleController', ['$scope', function($scope, ImageLoad
 ### Image source is an object property
 ####Controller
 ```javascript
-// Include the image-loader in your module dependencies
-var exampleApp = angular.module('exampleApp',['sap.imageloader']);
-
-exampleApp.controller('ExampleController', ['$scope', function($scope, ImageLoader) {
+exampleApp.controller('ExampleController', ['$scope', 'ImageLoader', function($scope, ImageLoader) {
   var myObject = {
     myImageSrc: 'http://someimagesource.com/example.jpg'
   };
@@ -59,10 +69,7 @@ exampleApp.controller('ExampleController', ['$scope', function($scope, ImageLoad
 ### List of image objects or strings
 ####Controller
 ```javascript
-// Include the image-loader in your module dependencies
-var exampleApp = angular.module('exampleApp',['sap.imageloader']);
-
-exampleApp.controller('ExampleController', ['$scope', function($scope, ImageLoader) {
+exampleApp.controller('ExampleController', ['$scope', 'ImageLoader', function($scope, ImageLoader) {
   var myStringsList = [
     'http://someimagesource.com/example.jpg',
     'http://someimagesource.com/example2.jpg'
