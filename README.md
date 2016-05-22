@@ -1,6 +1,6 @@
 # image-loader-angular
 
-An AngularJS module containing for loading images to be put in image tags in the markup of application. Using this module to load images will keep remove the responsibility of loading images from the view and thus not block its rendering process. Compatible with AngularJS 1.2.14 up to 1.5.
+An AngularJS module for loading images to be put in image tags in the markup of application. Using this module to load images will keep remove the responsibility of loading images from the view and thus not block its rendering process. Compatible with AngularJS 1.2.14 up to 1.5.
 
 ## Installation
 Use npm to install the module:
