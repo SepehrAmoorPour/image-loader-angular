@@ -4,10 +4,10 @@ An AngularJS module for loading images to be put in image tags in the markup of 
 
 ## Installation
 Use npm to install the module:
-> npm install image-loader-angular
+`npm install image-loader-angular`
 
 ## Directive
-Use the directive <loaded-image> as a substitute for the <img> tag. The directive will load the image and insert it into the view markup as an <img> tag. All attributes included in the <loaded-image> directive will be added to the <img> tag. First include the ImageLoader module to the app.
+Use the directive <loaded-image> as a substitute for the `<img>` tag. The directive will load the image and insert it into the view markup as an `<img>` tag. All attributes included in the <loaded-image> directive will be added to the <img> tag. First include the ImageLoader module to the app.
 
 ```javascript
 // Include the image-loader in your module dependencies
